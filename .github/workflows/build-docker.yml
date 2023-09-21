@@ -23,11 +23,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          path: packages/plugins/boilerplate
+          path: packages/plugins/@nocobase/plugin-boilerplate
       - name: add plugin to git
-        run: rm -rf packages/plugins/boilerplate/.git &&  git config --global user.email "you@example.com"  &&  git config --global user.name "Your Name" && git add -A && git commit -m "tmp commit"
-      - name: create client file
-        run: echo "export { default } from '@nocobase/plugin-boilerplate/client';" >> packages/app/client/src/plugins/boilerplate.ts
+        run: rm -rf packages/plugins/@nocobase/plugin-boilerplate/.git &&  git config --global user.email "you@example.com"  &&  git config --global user.name "Your Name" && git add -A && git commit -m "tmp commit"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -52,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: Dockerfile.acr
+          file: Dockerfile
           build-args: |
             VERDACCIO_URL=http://localhost:4873/
             COMMIT_HASH=${GITHUB_SHA}

@@ -2,9 +2,9 @@
   "name": "@nocobase/plugin-boilerplate",
   "version": "0.9.4-alpha.2",
   "main": "lib/server/index.js",
-  "devDependencies": {
-    "@nocobase/client": "0.9.4-alpha.2",
-    "@nocobase/server": "0.9.4-alpha.2",
-    "@nocobase/test": "0.9.4-alpha.2"
+  "peerDependencies": {
+    "@nocobase/client": "0.x",
+    "@nocobase/server": "0.x",
+    "@nocobase/test": "0.x"
   }
 }
